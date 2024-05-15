@@ -1,4 +1,4 @@
-package br.com.alura.comex.trello;
+package br.com.alura.comex.trello6;
 
 import java.math.BigDecimal;
 import java.util.Date;

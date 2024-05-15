@@ -1,4 +1,4 @@
-package br.com.alura.comex.trello;
+package br.com.alura.comex.trello6;
 
 public class ComparaProdutos {
     public static void main(String[] args) {

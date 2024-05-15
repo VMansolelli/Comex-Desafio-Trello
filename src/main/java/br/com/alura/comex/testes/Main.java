@@ -1,4 +1,4 @@
-package br.com.alura.comex;
+package br.com.alura.comex.testes;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
