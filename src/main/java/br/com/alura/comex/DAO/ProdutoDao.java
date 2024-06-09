@@ -42,4 +42,32 @@ public class ProdutoDao {
         System.out.println("Listando produtos indisponíveis: " + produtosIndisponiveis);
         return produtosIndisponiveis;
     }
+
+    public void atualizarEstoque(Long produtoId, int novaQuantidade) {
+        EntityTransaction et = em.getTransaction();
+        try {
+            et.begin();
+            Produto produto = em.find(Produto.class, produtoId);
+            if (produto != null) {
+                produto.setQuantidade(novaQuantidade);
+                em.merge(produto);
+                System.out.println("Estoque atualizado - Produto: " + produto.getNome() + ", Quantidade: " + novaQuantidade);
+            } else {
+                System.out.println("Produto não encontrado para atualização de estoque.");
+            }
+            et.commit();
+        } catch (Exception e) {
+            if (et.isActive()) {
+                et.rollback();
+            }
+            throw new RuntimeException("Erro ao atualizar o estoque do produto", e);
+        }
+    }
+
+    public void salvar(Produto produto) {
+    }
+
+    public List<Produto> buscarTodos() {
+        return List.of();
+    }
 }

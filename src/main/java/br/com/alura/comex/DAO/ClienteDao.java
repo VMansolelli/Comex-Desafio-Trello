@@ -3,13 +3,17 @@ package br.com.alura.comex.DAO;
 import br.com.alura.comex.modelos.Cliente;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import java.util.Collections;
 import java.util.List;
 
 public class ClienteDao {
-    private final EntityManager em;
+    private EntityManager em;
 
     public ClienteDao(EntityManager em) {
         this.em = em;
+    }
+
+    public ClienteDao() {
     }
 
     public Cliente buscaPorId(Long id) {
@@ -69,6 +73,17 @@ public class ClienteDao {
                 .getResultList();
         System.out.println("Listando Clientes por nome (" + nome + "): " + clientes);
         return clientes;
+    }
+
+    public void salvar(Cliente cliente) {
+    }
+
+    public List<Cliente> buscarTodos() {
+        List<Cliente> clientes = em.createQuery("SELECT c FROM Cliente c", Cliente.class).getResultList();
+        return clientes != null ? clientes : Collections.emptyList(); // Garante que nunca retorne null
+    }
+
+    public void deletarCliente(Long clienteId) {
     }
 }
 
