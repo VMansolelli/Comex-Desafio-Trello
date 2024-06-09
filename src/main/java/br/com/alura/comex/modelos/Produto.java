@@ -38,6 +38,10 @@ public class Produto {
     public Produto(String nome, String descricao, BigDecimal precoUnitario, int quantidade, int categoria) {
     }
 
+    public Produto() {
+
+    }
+
     // Getters
     public Long getId() {
         return id;
